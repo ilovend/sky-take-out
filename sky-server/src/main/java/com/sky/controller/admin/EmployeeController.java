@@ -91,6 +91,7 @@ public class EmployeeController {
     @ApiOperation(value = "保存", notes = "保存")
     public Result save(@RequestBody EmployeeDTO employeeDTO) {
         employeeService.save(employeeDTO);
+        log.info("保存成功");
         return Result.success();
     }
 
