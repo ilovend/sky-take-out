@@ -3,8 +3,10 @@ package com.sky.controller.admin;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import com.sky.properties.JwtProperties;
+import com.sky.result.PageResult;
 import com.sky.result.Result;
 import com.sky.service.EmployeeService;
 import com.sky.utils.JwtUtil;
@@ -14,10 +16,7 @@ import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -87,6 +86,12 @@ public class EmployeeController {
         return Result.success();
     }
 
+    /**
+     * 保存
+     *
+     * @param employeeDTO 员工dto
+     * @return {@link Result}
+     */
     @PostMapping
     @ApiOperation(value = "保存", notes = "保存")
     public Result save(@RequestBody EmployeeDTO employeeDTO) {
@@ -94,5 +99,21 @@ public class EmployeeController {
         log.info("保存成功");
         return Result.success();
     }
+
+
+    /**
+     * 分页查询
+     *
+     * @param employeePageQueryDTO 员工页面查询dto
+     * @return {@link Result}<{@link PageResult}>
+     */
+    @GetMapping("/page")
+    @ApiOperation(value = "分页查询", notes = "分页查询")
+    public Result<PageResult> pagingQuery(EmployeePageQueryDTO employeePageQueryDTO) {
+        log.info("分页查询：{}", employeePageQueryDTO);
+        PageResult pageResult = employeeService.pagingQuery(employeePageQueryDTO);
+        return Result.success(pageResult);
+    }
+
 
 }
