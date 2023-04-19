@@ -29,4 +29,22 @@ public interface EmployeeService {
      * @return {@link PageResult}
      */
     PageResult pagingQuery(EmployeePageQueryDTO employeePageQueryDTO);
+
+    /**
+     * 更新状态
+     *
+     * @param status 状态
+     * @param id     id
+     */
+    void updateStatus(Integer status, Long id);
+
+    /**
+     * 通过id
+     *
+     * @param id id
+     * @return {@link Employee}
+     */
+    Employee getById(Long id);
+
+    void update(EmployeeDTO employeeDTO);
 }

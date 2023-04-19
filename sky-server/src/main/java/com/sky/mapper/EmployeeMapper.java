@@ -18,5 +18,10 @@ public interface EmployeeMapper {
 
     void insert(Employee employee);
 
-    Page<Employee> pageQuery(Employee employee);
+    Page<Employee> pagingQuery(Employee employee);
+
+    void update(Employee employee);
+
+    Employee getById(Long id);
+
 }

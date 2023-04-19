@@ -115,5 +115,34 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
+    /**
+     * 更新状态
+     *
+     * @param status 状态
+     * @param id     id
+     * @return {@link Result}
+     */
+    @PostMapping("/status/{status}")
+    public Result updateStatus(@PathVariable Integer status,Long id) {
+        employeeService.updateStatus(status,id);
+        return Result.success();
+    }
 
+    /**
+     * 通过id
+     *
+     * @param id id
+     * @return {@link Result}<{@link Employee}>
+     */
+    @GetMapping("/{id}")
+    public Result<Employee> getById(@PathVariable Long id) {
+        Employee employee = employeeService.getById(id);
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.update(employeeDTO);
+        return Result.success();
+    }
 }
