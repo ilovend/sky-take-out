@@ -1,6 +1,7 @@
 package com.sky.controller.admin;
 
 import com.sky.constant.JwtClaimsConstant;
+import com.sky.dto.EmployeeDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
 import com.sky.properties.JwtProperties;
@@ -30,9 +31,15 @@ import java.util.Map;
 @Slf4j
 public class EmployeeController {
 
+    /**
+     * 员工服务
+     */
     @Autowired
     @ApiModelProperty(value = "员工服务")
     private EmployeeService employeeService;
+    /**
+     * jwt配置
+     */
     @Autowired
     @ApiModelProperty(value = "jwt配置")
     private JwtProperties jwtProperties;
@@ -40,8 +47,8 @@ public class EmployeeController {
     /**
      * 登录
      *
-     * @param employeeLoginDTO
-     * @return
+     * @param employeeLoginDTO 员工登录dto
+     * @return {@link Result}<{@link EmployeeLoginVO}>
      */
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "登录")
@@ -68,14 +75,22 @@ public class EmployeeController {
         return Result.success(employeeLoginVO);
     }
 
+
     /**
-     * 退出
+     * 注销
      *
-     * @return
+     * @return {@link Result}<{@link String}>
      */
     @PostMapping("/logout")
     @ApiOperation(value = "退出", notes = "退出")
     public Result<String> logout() {
+        return Result.success();
+    }
+
+    @PostMapping
+    @ApiOperation(value = "保存", notes = "保存")
+    public Result save(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.save(employeeDTO);
         return Result.success();
     }
 
