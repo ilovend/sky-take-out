@@ -39,7 +39,7 @@ sky:
     # 设置前端传递过来的令牌名称
     admin-token-name: token
   qiniu:
-    accessKey: CazQQRyp5MiLDR_LiBruYeG7xyShydm_rLArdTJb
-    secretKey: oOlv82H51dZ-rb11H4VOBoQ4Vo9M7kgauE02WqfX
-    bucket: picgoimgs
-    domain: http://cdn.zyboy.site/
+    accessKey: ${sky.qiniu.accessKey}
+    secretKey: ${sky.qiniu.secretKey}
+    bucket: ${sky.qiniu.bucket}
+    domain: ${sky.qiniu.domain}
