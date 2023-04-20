@@ -34,14 +34,18 @@ import java.time.LocalDateTime;
 @Slf4j
 public class EmployeeServiceImpl implements EmployeeService {
 
+    /**
+     * 员工映射器
+     */
     @Autowired
     private EmployeeMapper employeeMapper;
 
     /**
+     * 登录
      * 员工登录
      *
-     * @param employeeLoginDTO
-     * @return
+     * @param employeeLoginDTO 员工登录dto
+     * @return {@link Employee}
      */
     public Employee login(EmployeeLoginDTO employeeLoginDTO) {
         String username = employeeLoginDTO.getUsername();
@@ -132,6 +136,12 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.update(employee);
     }
 
+    /**
+     * 通过id
+     *
+     * @param id id
+     * @return {@link Employee}
+     */
     @Override
     public Employee getById(Long id) {
         Employee employee = employeeMapper.getById(id);
@@ -139,6 +149,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         return employee;
     }
 
+    /**
+     * 更新
+     *
+     * @param employeeDTO 员工dto
+     */
     @Override
     public void update(EmployeeDTO employeeDTO) {
         Employee employee = new Employee();
@@ -147,5 +162,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
+
 
 }

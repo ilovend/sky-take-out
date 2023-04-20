@@ -15,10 +15,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
+/**
+ * 类别服务impl
+ *
+ * @author ilovend
+ * @date 2023/04/20
+ */
 @Service
 @Slf4j
 public class CategoryServiceImpl implements CategoryService {
+    /**
+     * 类别映射器
+     */
     @Autowired
     private CategoryMapper categoryMapper;
 
@@ -58,9 +68,45 @@ public class CategoryServiceImpl implements CategoryService {
         return new PageResult(cate.getTotal(), cate.getResult());
     }
 
+    /**
+     * 删除通过id
+     *
+     * @param id id
+     */
     @Override
     public void deleteById(Long id) {
         log.info("删除分类：{}", id);
         categoryMapper.deleteById(id);
+    }
+
+    /**
+     * 更新类别
+     *
+     * @param categoryDTO 类别dto
+     */
+    @Override
+    public void updateCategory(CategoryDTO categoryDTO) {
+        Category category = new Category();
+        BeanUtils.copyProperties(categoryDTO, category);
+        category.setUpdateTime(LocalDateTime.now());
+        category.setUpdateUser(BaseContext.getCurrentId());
+        categoryMapper.update(category);
+    }
+
+    /**
+     * 更新状态
+     *
+     * @param status 状态
+     * @param id     id
+     */
+    @Override
+    public void updateStatus(Integer status, Long id) {
+        log.info("更新分类状态：{}", id);
+        categoryMapper.updateStatus(status, id);
+    }
+
+    @Override
+    public List<Category> list(Integer type) {
+        return categoryMapper.list(type);
     }
 }
