@@ -57,4 +57,10 @@ public class CategoryServiceImpl implements CategoryService {
         Page<Category> cate = categoryMapper.getByCondition(category);
         return new PageResult(cate.getTotal(), cate.getResult());
     }
+
+    @Override
+    public void deleteById(Long id) {
+        log.info("删除分类：{}", id);
+        categoryMapper.deleteById(id);
+    }
 }

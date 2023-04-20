@@ -24,6 +24,9 @@
                      #{updateUser}
                  )
     </insert>
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from category where id = #{id}
+    </delete>
     <select id="getByCondition" resultType="com.sky.entity.Category"
             parameterType="com.sky.entity.Category">
         select id,

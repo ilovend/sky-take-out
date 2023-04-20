@@ -11,4 +11,5 @@ public interface CategoryMapper {
 
     Page<Category> getByCondition(Category category);
 
+    void deleteById(Long id);
 }
