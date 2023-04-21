@@ -15,6 +15,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.ss.formula.functions.T;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -150,7 +151,7 @@ public class EmployeeController {
      */
     @PutMapping
     @ApiOperation(value = "修改", notes = "修改")
-    public Result update(@RequestBody EmployeeDTO employeeDTO) {
+    public Result<T> update(@RequestBody EmployeeDTO employeeDTO) {
         employeeService.update(employeeDTO);
         return Result.success();
     }

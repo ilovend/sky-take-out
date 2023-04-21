@@ -14,14 +14,30 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.UUID;
 
+/**
+ *
+ * 通用Controller
+ *
+ * @author ilovend
+ * @date 2023/04/20
+ */
 @RestController
 @RequestMapping("/admin/common")
 @Api("公共接口")
 @Slf4j
 public class CommonController {
+    /**
+     * qiniu oss工具
+     */
     @Autowired
     private QiniuOssUtil qiniuOssUtil;
 
+    /**
+     * 上传
+     *
+     * @param file 文件
+     * @return {@link Result}<{@link String}>
+     */
     @PostMapping("/upload")
     @ApiOperation("文件上传")
     public Result<String> upload(MultipartFile file) {
