@@ -63,6 +63,12 @@ public class DishController {
         return Result.success(pageResult);
     }
 
+    /**
+     * 批量删除条目
+     *
+     * @param ids id
+     * @return {@link Result}<{@link T}>
+     */
     @DeleteMapping
     @ApiOperation(value = "删除菜品")
     public Result<T> batchDeleteItems(@RequestParam("ids") List<Long> ids) {

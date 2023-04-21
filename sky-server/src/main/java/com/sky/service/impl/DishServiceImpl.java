@@ -86,6 +86,11 @@ public class DishServiceImpl implements DishService {
         return new PageResult(page.getTotal(), page.getResult());
     }
 
+    /**
+     * 批量删除条目
+     *
+     * @param ids id
+     */
     @Override
     public void batchDeleteItems(List<Long> ids) {
 //        判断当前菜品是否能够删除-- - 是否存在起售中的菜品？？

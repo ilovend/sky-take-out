@@ -105,6 +105,12 @@ public class CategoryServiceImpl implements CategoryService {
         categoryMapper.updateStatus(status, id);
     }
 
+    /**
+     * 列表
+     *
+     * @param type 类型
+     * @return {@link List}<{@link Category}>
+     */
     @Override
     public List<Category> list(Integer type) {
         return categoryMapper.list(type);
