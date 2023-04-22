@@ -30,7 +30,6 @@ public class AutoFillAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 
         AutoFill autoFill = signature.getMethod().getAnnotation(AutoFill.class);
-
         OperationType operationType = autoFill.value();
 
         Object[] args = joinPoint.getArgs();
@@ -65,11 +64,9 @@ public class AutoFillAspect {
 //                通过反射为对象属性复制
                 setUpdateTime.invoke(entity, now);
                 setUpdateUser.invoke(entity, currentId);
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
 
         }
     }
