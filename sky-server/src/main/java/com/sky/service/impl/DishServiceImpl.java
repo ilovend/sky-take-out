@@ -144,5 +144,25 @@ public class DishServiceImpl implements DishService {
         }
     }
 
+    @Override
+    public void updateStatus(Integer status, Integer id) {
+        dishMapper.updateStatus(status, id);
+    }
+
+    /**
+     * 按类别id列表
+     *
+     * @param categoryId 类别id
+     * @return {@link List}<{@link Dish}>
+     */
+    @Override
+    public List<Dish> listByCategoryId(Long categoryId) {
+        Dish build = new Dish().builder()
+                .categoryId(categoryId)
+                .status(StatusConstant.ENABLE)
+                .build();
+        return dishMapper.list(build);
+    }
+
 
 }
