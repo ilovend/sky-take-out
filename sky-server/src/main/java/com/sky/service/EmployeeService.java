@@ -7,7 +7,6 @@ import com.sky.entity.Employee;
 import com.sky.result.PageResult;
 import org.springframework.transaction.annotation.Transactional;
 
-@Transactional
 public interface EmployeeService {
 
     /**

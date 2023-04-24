@@ -28,4 +28,6 @@ public interface DishMapper {
     void updateStatus(Integer status, Integer id);
 
     List<Dish> list(Dish build);
+
+    List<Dish> getBySetmealId(Long id);
 }
