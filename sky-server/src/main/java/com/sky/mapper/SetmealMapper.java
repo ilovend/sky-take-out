@@ -9,7 +9,6 @@ import com.sky.vo.SetmealVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-
 public interface SetmealMapper {
 
     @AutoFill(value = OperationType.INSERT)
