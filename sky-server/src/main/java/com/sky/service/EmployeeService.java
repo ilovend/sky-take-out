@@ -5,7 +5,6 @@ import com.sky.dto.EmployeeLoginDTO;
 import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import com.sky.result.PageResult;
-import org.springframework.transaction.annotation.Transactional;
 
 public interface EmployeeService {
 

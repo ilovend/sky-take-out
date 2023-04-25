@@ -47,3 +47,6 @@ sky:
     secretKey: ${sky.qiniu.secretKey}
     bucket: ${sky.qiniu.bucket}
     domain: ${sky.qiniu.domain}
+  wechat:
+    appid: ${sky.wechat.appid}
+    secret: ${sky.wechat.secret}
