@@ -157,7 +157,7 @@ public class DishServiceImpl implements DishService {
      */
     @Override
     public List<Dish> listByCategoryId(Long categoryId) {
-        Dish build = new Dish().builder()
+        Dish build = Dish.builder()
                 .categoryId(categoryId)
                 .status(StatusConstant.ENABLE)
                 .build();
