@@ -34,4 +34,6 @@ public interface ShoppingCartMapper {
      * @param shoppingCart 购物车
      */
     void insert(ShoppingCart shoppingCart);
+
+    void deleteByUserId(Long currentId);
 }
