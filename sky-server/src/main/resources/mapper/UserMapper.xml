@@ -11,4 +11,7 @@
         from user
         where openid = #{openod}
     </select>
+    <select id="getById" resultType="com.sky.entity.User" parameterType="java.lang.Long">
+        select * from user where id = #{id}
+    </select>
 </mapper>
