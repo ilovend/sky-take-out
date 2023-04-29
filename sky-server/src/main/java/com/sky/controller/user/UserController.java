@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user/user/")
+@RequestMapping("/user/user")
 @Api(tags = "C端用户相关接口")
 @Slf4j
 public class UserController {
@@ -32,7 +33,7 @@ public class UserController {
 
     @PostMapping("/login")
     @ApiOperation(value = "登录", notes = "登录")
-    public Result<UserLoginVO> login(UserLoginDTO userLoginDTO) {
+    public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO) {
         User user = userService.login(userLoginDTO);
 
         Map<String, Object> claims = new HashMap<>();
