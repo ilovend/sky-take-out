@@ -77,4 +77,9 @@
         from orders
         where id = #{id}
     </select>
+    <select id="countStatus" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+        select count(id)
+        from orders
+        where status = #{status}
+    </select>
 </mapper>
