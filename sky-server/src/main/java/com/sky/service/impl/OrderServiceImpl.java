@@ -438,7 +438,7 @@ public class OrderServiceImpl implements OrderService {
         JSONObject result = jsonObject.getJSONObject("result");
         JSONArray jsonArray = (JSONArray) result.get("routes");
         Integer distance = (Integer) ((JSONObject) jsonArray.get(0)).get("distance");
-
+        log.info("配送距离:{}", distance);
         if (distance > 10000) {
 //            配送距离超过5000米
             throw new OrderBusinessException("超出配送范围");
