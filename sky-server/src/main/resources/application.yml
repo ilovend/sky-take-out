@@ -60,5 +60,8 @@ sky:
     weChatPayCertFilePath: ${sky.wechat.weChatPayCertFilePath}
     notifyUrl: ${sky.wechat.notifyUrl}
     refundNotifyUrl: ${sky.wechat.refundNotifyUrl}
-
+  shop:
+    address: 四川省成都市金牛区蜀西路58号精城国际
+  baidu:
+    ak: cO2e9GqCgQH706jona8F8KzDHy6mQONS
 
