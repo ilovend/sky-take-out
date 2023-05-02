@@ -23,23 +23,9 @@ public class SetmealController {
     @Autowired
     private SetmealService setmealService;
 
+
     /**
-     * 添加setmeal<br/>
-     * 业务规则：
-     * <p>
-     * - 套餐名称唯一
-     * - 套餐必须属于某个分类
-     * - 套餐必须包含菜品
-     * - 名称、分类、价格、图片为必填项
-     * - 添加菜品窗口需要根据分类类型来展示菜品
-     * - 新增的套餐默认为停售状态
-     * <p>
-     * 接口设计（共涉及到4个接口）：
-     * <p>
-     * - 根据类型查询分类（已完成）
-     * - 根据分类id查询菜品
-     * - 图片上传（已完成）
-     * - 新增套餐
+     * 添加setmeal
      *
      * @param setmealDTO setmeal dto
      * @return {@link Result}

@@ -17,14 +17,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 
+/**
+ * 报表管理
+ *
+ * @author ilovend
+ * @date 2023/05/02
+ */
 @RestController
 @RequestMapping("/admin/report")
 @Slf4j
 @Api(tags = "报表管理")
 public class ReportController {
+    /**
+     * 报告服务
+     */
     @Autowired
     private ReportService reportService;
 
+    /**
+     * 营业额统计
+     *
+     * @param begin 开始
+     * @param end   结束
+     * @return {@link Result}<{@link TurnoverReportVO}>
+     */
     @GetMapping("/turnoverStatistics")
     @ApiOperation(value = "营业额统计", notes = "营业额统计")
     public Result<TurnoverReportVO> turnoverStatistics(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
@@ -33,6 +49,13 @@ public class ReportController {
         return Result.success(turnoverReportVO);
     }
 
+    /**
+     * 用户统计
+     *
+     * @param begin 开始
+     * @param end   结束
+     * @return {@link Result}<{@link UserReportVO}>
+     */
     @GetMapping("/userStatistics")
     @ApiOperation(value = "用户统计", notes = "用户统计")
     public Result<UserReportVO> userStatistics(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
@@ -41,6 +64,13 @@ public class ReportController {
         return Result.success(userReportVO);
     }
 
+    /**
+     * 订单统计
+     *
+     * @param begin 开始
+     * @param end   结束
+     * @return {@link Result}<{@link OrderReportVO}>
+     */
     @GetMapping("/ordersStatistics")
     @ApiOperation(value = "订单统计", notes = "订单统计")
     public Result<OrderReportVO> orderStatistics(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
@@ -49,6 +79,13 @@ public class ReportController {
         return Result.success(orderReportVO);
     }
 
+    /**
+     * 热销商品
+     *
+     * @param begin 开始
+     * @param end   结束
+     * @return {@link Result}<{@link SalesTop10ReportVO}>
+     */
     @GetMapping("/top10")
     @ApiOperation(value = "热销商品", notes = "热销商品")
     public Result<SalesTop10ReportVO> top10(@DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate begin,
