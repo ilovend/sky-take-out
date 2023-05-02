@@ -381,7 +381,7 @@ public class OrderServiceImpl implements OrderService {
                 String orderDishes = getOrderDishesStr(orders);
 //                将订单菜品信息封装到orderVO中,并添加到orderVOList
                 orderVO.setOrderDishes(orderDishes);
-                ordersList.add(orderVO);
+                orderVOList.add(orderVO);
             }
         }
         return orderVOList;
