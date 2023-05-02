@@ -8,6 +8,7 @@ import com.sky.vo.DishVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface DishMapper {
@@ -29,4 +30,6 @@ public interface DishMapper {
     List<Dish> list(Dish build);
 
     List<Dish> getBySetmealId(Long id);
+
+    Integer countByMap(Map map);
 }
