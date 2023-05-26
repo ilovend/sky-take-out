@@ -9,7 +9,7 @@ pipeline {
 
     stage('Package') {
       steps {
-        archiveArtifacts 'sky-server/target/*.jar'
+        archiveArtifacts 'sky-server/target/*.jar,sky-pojo/target/*.jar'
       }
     }
 
