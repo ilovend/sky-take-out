@@ -3,11 +3,11 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean package'
+        sh 'mvn clean test package'
       }
     }
 
-    stage('Package') {
+    stage('Artifacts') {
       steps {
         archiveArtifacts 'sky-server/target/*.jar,sky-pojo/target/*.jar'
       }
