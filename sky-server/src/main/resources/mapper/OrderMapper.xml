@@ -88,4 +88,48 @@
         where status = #{status}
           and order_time <![CDATA[<]]> #{orderTime};
     </select>
+    <select id="sumByMap" resultType="java.lang.Double" parameterType="java.util.Map">
+        select sum(amount) from orders
+        <where>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="begin!=null">
+                and order_time<![CDATA[<=]]>#{begin}
+            </if>
+            <if test="end!=null">
+                and order_time<![CDATA[>=]]>#{end}
+            </if>
+        </where>
+    </select>
+    <select id="countByMap" resultType="java.lang.Integer" parameterType="java.util.Map">
+        select count(id) from orders
+        <where>
+            <if test="status!=null">
+                and status=#{status}
+            </if>
+            <if test="begin!=null">
+                and order_time<![CDATA[<=]]>#{begin}
+            </if>
+            <if test="end!=null">
+                and order_time<![CDATA[>=]]>#{end}
+            </if>
+        </where>
+    </select>
+    <select id="getSalesTop10" resultType="com.sky.dto.GoodsSalesDTO">
+        select od.name name, sum(od.number) number
+        from order_detail od,
+             orders o
+        where od.order_id=o.id
+        and o.status=5
+        <if test="begin != null">
+            and order_time <![CDATA[>=]]>#{begin}
+        </if>
+        <if test="end != null">
+            and order_time <![CDATA[<=]]>#{end}
+        </if>
+        group by name
+        order by number desc
+        limit 0,10
+    </select>
 </mapper>
